@@ -1,0 +1,5 @@
+{
+    "registry-mirrors": ["http://10.240.18.100:5000"],
+    "insecure-registries": ["http://10.240.18.100:5000", "http://10.240.18.100:5001", "amaas-eos-mw1.cec.lab.emc.com:5000"],
+    "dns": ["10.240.16.11", "10.240.16.12"]
+}

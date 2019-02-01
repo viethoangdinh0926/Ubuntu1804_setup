@@ -1,0 +1,120 @@
+{
+   "checksum": "54494a7e75c1a41b042e4920d6f18b75",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13167167645641439",
+            "id": "7",
+            "meta_info": {
+               "last_visited_desktop": "13167168483966510"
+            },
+            "name": "event-horizon",
+            "type": "url",
+            "url": "https://eos2git.cec.lab.emc.com/Katalist/event-horizon"
+         }, {
+            "date_added": "13167167707643572",
+            "id": "8",
+            "meta_info": {
+               "last_visited_desktop": "13167167707644417"
+            },
+            "name": "Pivotal Tracker",
+            "type": "url",
+            "url": "https://www.pivotaltracker.com/dashboard"
+         }, {
+            "date_added": "13167167759629440",
+            "id": "9",
+            "meta_info": {
+               "last_visited_desktop": "13167167759630550"
+            },
+            "name": "Concourse",
+            "type": "url",
+            "url": "https://10.240.18.31/teams/main/pipelines/event-horizon"
+         }, {
+            "date_added": "13167167800815071",
+            "id": "10",
+            "meta_info": {
+               "last_visited_desktop": "13167167800815739"
+            },
+            "name": "Docker Registry",
+            "type": "url",
+            "url": "http://10.240.16.225:8080/"
+         }, {
+            "date_added": "13167168019944047",
+            "id": "15",
+            "meta_info": {
+               "last_visited_desktop": "13167168484670425"
+            },
+            "name": "vCenter",
+            "type": "url",
+            "url": "https://vc01.ose.lab.emc.com/"
+         }, {
+            "date_added": "13167167814007586",
+            "id": "11",
+            "meta_info": {
+               "last_visited_desktop": "13167167814008383"
+            },
+            "name": "Workstation",
+            "type": "url",
+            "url": "https://github.com/ekaley/ubuntu_boilerplate"
+         }, {
+            "date_added": "13167167929905866",
+            "id": "12",
+            "meta_info": {
+               "last_visited_desktop": "13167167929906966"
+            },
+            "name": "Confluence",
+            "type": "url",
+            "url": "https://confluence.cec.lab.emc.com:8443/display/NGMO/Veyron"
+         }, {
+            "date_added": "13167167958769133",
+            "id": "13",
+            "meta_info": {
+               "last_visited_desktop": "13167167958769759"
+            },
+            "name": "Slack",
+            "type": "url",
+            "url": "https://katalistcommunity.slack.com/"
+         }, {
+            "date_added": "13167167972120763",
+            "id": "14",
+            "meta_info": {
+               "last_visited_desktop": "13167167972121648"
+            },
+            "name": "WebMail",
+            "type": "url",
+            "url": "https://email.emc.com/owa/auth/logon.aspx?url=https://email.emc.com/owa/&reason=0"
+         }, {
+            "date_added": "13167169872974732",
+            "id": "17",
+            "meta_info": {
+               "last_visited_desktop": "13167169872975759"
+            },
+            "name": "uBlock Origin",
+            "type": "url",
+            "url": "https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en"
+         } ],
+         "date_added": "13167166909640742",
+         "date_modified": "13167169872974732",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13167166909640750",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13167166909640751",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

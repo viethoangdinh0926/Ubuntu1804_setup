@@ -1,0 +1,53 @@
+"*":
+  "atom-ide-ui":
+    use:
+      "atom-ide-diagnostics-ui": "never"
+  "atom-material-ui":
+    colors:
+      abaseColor: "#2196f3"
+      predefinedColor: "Blue"
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui:
+      panelContrast: true
+      panelShadows: true
+  core:
+    closeDeletedFileTabs: true
+    debugLSP: true
+    telemetryConsent: "no"
+    themes: [
+      "seti-ui"
+      "monokai-seti"
+    ]
+    warnOnLargeFileLimit: 5
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    tabLength: 4
+  "exception-reporting":
+    userId: "850742c4-8098-8646-0c4b-38ac9a703be9"
+  "file-icons":
+    onChanges: true
+  "go-plus":
+    config:
+      additionalTestArgs: "-ginkgo.skip=\"\\bINTEGRATION\\b\""
+    format: {}
+    lint:
+      args: [
+        "--vendor --fast --disable=dupl --disable=gas --disable=gocyclo --disable=goconst --disable=vetshadow --disable=gotype --skip=ci --skip=api/restapi ./..."
+      ]
+    test:
+      coverageDisplayMode: "gutter"
+      coverageHighlightMode: "covered-and-uncovered"
+      runTestsWithVerboseFlag: true
+  "highlight-column":
+    lineMode: true
+  linter: {}
+  "linter-ui-default":
+    panelHeight: 178
+  "seti-ui":
+    compactView: true
+  welcome:
+    showOnStartup: false

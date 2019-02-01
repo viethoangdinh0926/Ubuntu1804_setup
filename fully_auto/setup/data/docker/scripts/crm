@@ -1,0 +1,6 @@
+#!/bin/bash
+set -v
+# Delete all containers
+docker rm -f $(docker ps -a -q)
+# Clean up all unused volumes
+docker volume prune -f

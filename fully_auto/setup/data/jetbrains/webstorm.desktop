@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=WebStorm
+Type=Application
+Exec=webstorm.sh
+Terminal=false
+Icon=webstorm
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=WebStorm

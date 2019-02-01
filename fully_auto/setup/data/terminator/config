@@ -1,0 +1,44 @@
+[global_config]
+[keybindings]
+  close_term = <Alt>w
+  close_window = <Shift><Alt>q
+  copy = <Alt>c
+  new_tab = <Alt>t
+  new_terminator = <Primary><Alt>n
+  new_window = <Alt>n
+  paste = <Primary>v
+  reset = <Shift><Alt>k
+  reset_clear = <Alt>k
+  search = <Primary>f
+  split_horiz = <Alt>d
+  split_vert = <Shift><Alt>d
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_10 = <Alt>0
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_9 = <Alt>9
+  zoom_in = <Shift><Alt>plus
+  zoom_out = <Shift><Alt>underscore
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    copy_on_selection = True
+    cursor_shape = ibeam
+    font = Monospace 11
+    foreground_color = "#ffffff"
+    scrollback_infinite = True
+    use_system_font = False
