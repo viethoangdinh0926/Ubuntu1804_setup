@@ -1,6 +1,6 @@
-###############################################################
-############################ SETUP ############################
-###############################################################
+###############################################################  
+############################ SETUP ############################  
+###############################################################  
 
 ------------
 Requirements
@@ -11,13 +11,13 @@ Requirements
 ------------
 Instruction
 ------------
-2 options:
+## 2 options:
 Fully automated:        The configuration will perform the installation and setting the machine up
                         automatically.
 Paritally automated:    The configuration wlil perform the installation automatically then user has
                         to set up the computer by running the script separately.
 
-Fully automated installation
+### Fully automated installation  
 1. Download an image of Ubuntu (18.04 preferably)
 2. Create a bootable drive from the ISO file (Ubuntu only)
 3. Replace txt.config in isolinux folder in the bootable drive with the one in /usb/full_auto
@@ -34,7 +34,7 @@ Fully automated installation
 ----------------------------------------------------------------------------------------------------
 
 
-Partially automated installation
+### Partially automated installation  
 1. Download an image of Ubuntu (18.04 preferably)
 2. Create a bootable drive from the ISO file 
 3. Replace txt.config in isolinux folder in the bootable drive with the one in /partially_auto
