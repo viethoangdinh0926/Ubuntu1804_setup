@@ -1,4 +1,4 @@
-# partitioning
+# Allocating partition and delete existing drives
 ubiquity partman/early_command string \
     debconf-set partman-auto/disk "$(echo /dev/`ls -l /sys/block/[hs]d* | grep -v "usb" | head -n1 | sed 's/^.*\([hs]d[a-z]\+\).*$/\1/'`)";\
 	debconf-set grub-installer/bootdev "$(echo /dev/`ls -l /sys/block/[hs]d* | grep -v "usb" | head -n1 | sed 's/^.*\([hs]d[a-z]\+\).*$/\1/'`)"
@@ -7,7 +7,7 @@ ubiquity partman-lvm/device_remove_lvm boolean true
 ubiquity partman-md/device_remove_md boolean true
 ubiquity partman-auto/choose_recipe select atomic
 
-# This makes partman automatically partition without confirmation
+# Automate the confirmation process
 d-i partman-partitioning/confirm_write_new_label boolean true
 d-i partman/choose_partition select finish
 d-i partman/confirm_nooverwrite boolean true
@@ -37,7 +37,7 @@ d-i apt-setup/multiverse boolean true
 d-i apt-setup/restricted boolean true
 d-i apt-setup/universe boolean true
 
-# Users
+# Set up user/password
 d-i passwd/user-fullname string Tom Brady
 d-i passwd/username string tom
 d-i passwd/user-password-crypted password $6$IloveEMC$7ApD9wfOlNk/tYqqkm2tUy9muEIjCBO5V6QwqzNKOPvnJhu38z8mJhksNZQ/dexUrwf/LEoDtI1MriXsur.Sq/ 
@@ -46,12 +46,12 @@ d-i passwd/root-login boolean true
 d-i passwd/root-password-crypted password $6$IloveEMC$7ApD9wfOlNk/tYqqkm2tUy9muEIjCBO5V6QwqzNKOPvnJhu38z8mJhksNZQ/dexUrwf/LEoDtI1MriXsur.Sq/ 
 d-i user-setup/allow-password-weak boolean true
 
-# Grub
+# Install Grub
 d-i grub-installer/grub2_instead_of_grub_legacy boolean true
 d-i grub-installer/only_debian boolean true
 d-i finish-install/reboot_in_progress note
 
-#Custom Commands
+# Custom Commands after Ubuntu installation
 ubiquity ubiquity/success_command string \
     cp -r /cdrom/setup /target/home/tom/Desktop;\
     echo "echo IloveEMC | sudo -S /home/tom/Desktop/setup.sh" >> /target/home/tom/.profile;\
