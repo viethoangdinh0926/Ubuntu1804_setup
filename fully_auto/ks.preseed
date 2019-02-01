@@ -55,4 +55,5 @@ d-i finish-install/reboot_in_progress note
 ubiquity ubiquity/success_command string \
     cp -r /cdrom/setup /target/home/tom/Desktop;\
     echo "echo IloveEMC | sudo -S /home/tom/Desktop/setup.sh" >> /target/home/tom/.profile;\
+    in target sed -i '/\[daemon\]/a AutomaticLoginEnable = true\nAutomaticLogin = tom' /etc/gdm3/custom.conf;\
     in-target chmod +x /home/tom/Desktop/setup.sh
