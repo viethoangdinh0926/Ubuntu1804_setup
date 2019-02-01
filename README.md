@@ -9,9 +9,9 @@ Requirements
 Instruction
 ------------
 ## 2 options
-Fully automated:        The configuration will perform the installation and setting the machine up
+**Fully automated:**        The configuration will perform the installation and setting the machine up
                         automatically.  
-Partially automated:    The configuration wlil perform the installation automatically then user has
+**Partially automated:**    The configuration wlil perform the installation automatically then user has
                         to set up the computer by running the script separately.
 
 ### Fully automated installation  
