@@ -42,7 +42,8 @@ d-i passwd/user-fullname string Tom Brady
 d-i passwd/username string tom
 d-i passwd/user-password-crypted password $6$IloveEMC$7ApD9wfOlNk/tYqqkm2tUy9muEIjCBO5V6QwqzNKOPvnJhu38z8mJhksNZQ/dexUrwf/LEoDtI1MriXsur.Sq/ 
 d-i passwd/user-default-groups string adm audio cdrom dip lpadmin sudo plugdev sambashare video
-d-i passwd/root-login boolean true
+#d-i passwd/auto-login boolean true
+d-i passwd/root-login boolean false
 d-i passwd/root-password-crypted password $6$IloveEMC$7ApD9wfOlNk/tYqqkm2tUy9muEIjCBO5V6QwqzNKOPvnJhu38z8mJhksNZQ/dexUrwf/LEoDtI1MriXsur.Sq/ 
 d-i user-setup/allow-password-weak boolean true
 
@@ -55,5 +56,5 @@ d-i finish-install/reboot_in_progress note
 ubiquity ubiquity/success_command string \
     cp -r /cdrom/setup /target/home/tom/Desktop;\
     echo "echo IloveEMC | sudo -S /home/tom/Desktop/setup.sh" >> /target/home/tom/.profile;\
-    in target sed -i '/\[daemon\]/a AutomaticLoginEnable = true\nAutomaticLogin = tom' /etc/gdm3/custom.conf;\
+#	echo "auto eth0" >> /target/etc/network/interfaces;\
     in-target chmod +x /home/tom/Desktop/setup.sh

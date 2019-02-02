@@ -24,7 +24,7 @@ echo "********************************"
 echo "* Installing DellEMC SSL certs *"
 echo "********************************"
 cp ${CONFIG}/sslcerts/*.crt /usr/local/share/ca-certificates/
-sudo -u mkdir -p /home/tom/.pki/nssdb
+sudo -u tom mkdir -p /home/tom/.pki/nssdb
 sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_Decrypt.crt -n EMC_Decrypt -t "C,,,"
 sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMCSSLDecryptionCAv2.crt -n EMC_DecryptionCAv2 -t "C,,,"
 sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_Internal.crt -n EMC_Internal -t "C,,,"
@@ -189,4 +189,5 @@ rm /opt/pycharm/${PYCHARM_VERSION}.tar.gz
 rm /home/tom/Desktop/setup.sh
 rm -r /home/tom/Desktop/data
 chown -R tom.tom /home/tom
+
 reboot

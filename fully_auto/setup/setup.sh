@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# CONST
 CONFIG="`dirname \"$0\"`/data"
 GO_VERSION=go1.11.4
 DUET_VERSION=0.5.2
@@ -9,12 +8,6 @@ COMPOSE_VERSION=1.18.0
 INTELLIJ_VERSION=ideaIC-2017.2.4
 WEBSTORM_VERSION=WebStorm-2017.2.4
 PYCHARM_VERSION=pycharm-community-2017.2.3
-
-# Setup machine config for automation
-sed -i '$ d' /home/tom/.profile
-chown -R tom.tom /home/tom
-chmod 700 /home/tom/.config
-sed -i '/AutomaticLogin/d' /etc/gdm3/custom.conf
 
 # apt-get update && dist-upgrade
 echo "********************************"
@@ -36,6 +29,7 @@ sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certi
 sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_ROOT.crt -n EMC_ROOT -t "C,,,"
 sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_SSL.crt -n EMC_SSL -t "C,,,"
 sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_User.crt -n EMC_User -t "C,,,"
+update-ca-certificates
 #wget http://aia.dell.com/int/root/Dell%20Internal%20MSPKI%202015%20Base64_PEM.zip
 #unzip "Dell Internal MSPKI 2015 Base64_PEM.zip" -d certs
 #rm "Dell Internal MSPKI 2015 Base64_PEM.zip"
@@ -49,6 +43,8 @@ sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certi
 echo "********************************"
 echo "*      Installing Chrome       *"
 echo "********************************"
+
+# Adding Chrome certs
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb --no-check-certificate
 dpkg -i google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
@@ -104,7 +100,11 @@ rm atom-amd64.deb
 
 # Golang
 echo "******************"
-echo "* Install Golang *"
+echo "* Install Go
+# remove this scripts and config folder
+rm /home/tom/Desktop/setup.sh
+rm -r /home/tom/Desktop/data
+rebootlang *"
 echo "******************"
 echo yes | apt install golang-go
 #echo yes | apt install gccgo-go
@@ -190,4 +190,11 @@ rm /opt/pycharm/${PYCHARM_VERSION}.tar.gz
 # remove this scripts and config folder
 rm /home/tom/Desktop/setup.sh
 rm -r /home/tom/Desktop/data
+
+# set owner shift and permissions
+chown -R tom.tom /home/tom
+chmod 700 /home/tom/.config
+sed -i '$ d' /home/tom/.profile
+#sed -i '/AutomaticLogin/d' /etc/gdm3/custom.conf
+
 reboot
