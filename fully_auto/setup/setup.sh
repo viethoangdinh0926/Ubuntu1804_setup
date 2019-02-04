@@ -11,36 +11,16 @@ INTELLIJ_VERSION=ideaIC-2017.2.4
 WEBSTORM_VERSION=WebStorm-2017.2.4
 PYCHARM_VERSION=pycharm-community-2017.2.3
 
-setup () {
+setup() {
 # apt-get update && dist-upgrade
 echo "********************************"
 echo "*   Updating All The Things    *"
 echo "********************************"
 apt update 
-echo yes | apt upgrade
-echo yes | apt install libnss3-tools
-
-# install SSL certs
-echo "********************************"
-echo "* Installing DellEMC SSL certs *"
-echo "********************************"
-cp ${CONFIG}/sslcerts/*.crt /usr/local/share/ca-certificates/
-sudo -u tom mkdir -p /home/tom/.pki/nssdb
-sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_Decrypt.crt -n EMC_Decrypt -t "C,,,"
-sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMCSSLDecryptionCAv2.crt -n EMC_DecryptionCAv2 -t "C,,,"
-sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_Internal.crt -n EMC_Internal -t "C,,,"
-sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_ROOT.crt -n EMC_ROOT -t "C,,,"
-sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_SSL.crt -n EMC_SSL -t "C,,,"
-sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_User.crt -n EMC_User -t "C,,,"
-update-ca-certificates
-#wget http://aia.dell.com/int/root/Dell%20Internal%20MSPKI%202015%20Base64_PEM.zip
-#unzip "Dell Internal MSPKI 2015 Base64_PEM.zip" -d certs
-#rm "Dell Internal MSPKI 2015 Base64_PEM.zip"
-#for f in /home/tom/Desktop/certs/*.pem; do
-#  openssl x509 -outform der -in "$f" -out "${f%.pem}.crt"
-#done
-#cp certs/*.crt /usr/local/share/ca-certificates/
-#rm -r ./certs
+#rm /var/lib/dpkg/lock
+#dpkg --configure -a
+#rm /var/lib/apt/lists/lock
+#rm /var/cache/apt/archives/lock
 
 # Chrome
 echo "********************************"
@@ -189,12 +169,36 @@ tar -xvf /opt/pycharm/${PYCHARM_VERSION}.tar.gz -C /opt/pycharm --strip-componen
 cp ${CONFIG}/jetbrains/pycharm.desktop /opt/pycharm/pycharm.desktop
 echo "alias pycharm=/opt/pycharm/bin/pycharm.sh" >> ~/.bashrc
 rm /opt/pycharm/${PYCHARM_VERSION}.tar.gz
-}
 
-setup | tee /home/tom/Desktop/log
+
+
+echo yes | apt dist-upgrade
+echo yes | apt install libnss3-tools
+
+# install SSL certs
+echo "********************************"
+echo "* Installing DellEMC SSL certs *"
+echo "********************************"
+cp ${CONFIG}/sslcerts/*.crt /usr/local/share/ca-certificates/
+sudo -u tom mkdir -p /home/tom/.pki/nssdb
+sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_Decrypt.crt -n EMC_Decrypt -t "C,,,"
+sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMCSSLDecryptionCAv2.crt -n EMC_DecryptionCAv2 -t "C,,,"
+sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_Internal.crt -n EMC_Internal -t "C,,,"
+sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_ROOT.crt -n EMC_ROOT -t "C,,,"
+sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_SSL.crt -n EMC_SSL -t "C,,,"
+sudo -u tom certutil -A -d sql:/home/tom/.pki/nssdb -i /usr/local/share/ca-certificates/EMC_User.crt -n EMC_User -t "C,,,"
+#wget http://aia.dell.com/int/root/Dell%20Internal%20MSPKI%202015%20Base64_PEM.zip
+#unzip "Dell Internal MSPKI 2015 Base64_PEM.zip" -d certs
+#rm "Dell Internal MSPKI 2015 Base64_PEM.zip"
+#for f in /home/tom/Desktop/certs/*.pem; do
+#  openssl x509 -outform der -in "$f" -out "${f%.pem}.crt"
+#done
+#cp certs/*.crt /usr/local/share/ca-certificates/
+#rm -r ./certs
+
 # remove this scripts and config folder
-rm /home/tom/Desktop/setup.sh
-rm -r /home/tom/Desktop/data
+#rm /home/tom/Desktop/setup.sh
+#rm -r /home/tom/Desktop/data
 
 # set owner shift and permissions
 chown -R tom.tom /home/tom
@@ -202,4 +206,9 @@ chmod 700 /home/tom/.config
 sed -i '$d' /home/tom/.profile
 sed -i '/gnome-terminal/d' /home/tom/.bashrc
 sed -i '/AutomaticLogin/d' /etc/gdm3/custom.conf
+
 reboot
+}
+
+setup | tee /home/tom/Desktop/log
+
