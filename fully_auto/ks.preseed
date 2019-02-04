@@ -42,7 +42,7 @@ d-i passwd/user-fullname string Tom Brady
 d-i passwd/username string tom
 d-i passwd/user-password-crypted password $6$IloveEMC$7ApD9wfOlNk/tYqqkm2tUy9muEIjCBO5V6QwqzNKOPvnJhu38z8mJhksNZQ/dexUrwf/LEoDtI1MriXsur.Sq/ 
 d-i passwd/user-default-groups string adm audio cdrom dip lpadmin sudo plugdev sambashare video
-#d-i passwd/auto-login boolean true
+d-i passwd/auto-login boolean true
 d-i passwd/root-login boolean false
 d-i passwd/root-password-crypted password $6$IloveEMC$7ApD9wfOlNk/tYqqkm2tUy9muEIjCBO5V6QwqzNKOPvnJhu38z8mJhksNZQ/dexUrwf/LEoDtI1MriXsur.Sq/ 
 d-i user-setup/allow-password-weak boolean true
@@ -55,6 +55,6 @@ d-i finish-install/reboot_in_progress note
 # Custom Commands after Ubuntu installation
 ubiquity ubiquity/success_command string \
     cp -r /cdrom/setup /target/home/tom/Desktop;\
-    echo "echo IloveEMC | sudo -S /home/tom/Desktop/setup.sh" >> /target/home/tom/.profile;\
-#	echo "auto eth0" >> /target/etc/network/interfaces;\
+    echo "gnome-terminal" >> /target/home/tom/.profile;\
+    echo "gnome-terminal -- sh -c 'sleep 10; echo IloveEMC | sudo -S /home/tom/Desktop/setup.sh; exec $SHELL'" >> /target/home/tom/.bashrc;\
     in-target chmod +x /home/tom/Desktop/setup.sh

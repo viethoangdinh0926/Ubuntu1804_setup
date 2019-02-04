@@ -9,6 +9,7 @@ INTELLIJ_VERSION=ideaIC-2017.2.4
 WEBSTORM_VERSION=WebStorm-2017.2.4
 PYCHARM_VERSION=pycharm-community-2017.2.3
 
+setup () {
 # apt-get update && dist-upgrade
 echo "********************************"
 echo "*   Updating All The Things    *"
@@ -186,7 +187,9 @@ tar -xvf /opt/pycharm/${PYCHARM_VERSION}.tar.gz -C /opt/pycharm --strip-componen
 cp ${CONFIG}/jetbrains/pycharm.desktop /opt/pycharm/pycharm.desktop
 echo "alias pycharm=/opt/pycharm/bin/pycharm.sh" >> ~/.bashrc
 rm /opt/pycharm/${PYCHARM_VERSION}.tar.gz
+}
 
+setup | tee /home/tom/Desktop/log
 # remove this scripts and config folder
 rm /home/tom/Desktop/setup.sh
 rm -r /home/tom/Desktop/data
@@ -194,7 +197,7 @@ rm -r /home/tom/Desktop/data
 # set owner shift and permissions
 chown -R tom.tom /home/tom
 chmod 700 /home/tom/.config
-sed -i '$ d' /home/tom/.profile
-#sed -i '/AutomaticLogin/d' /etc/gdm3/custom.conf
-
+sed -i '$d' /home/tom/.profile
+sed -i '/gnome-terminal/d' /home/tom/.bashrc
+sed -i '/AutomaticLogin/d' /etc/gdm3/custom.conf
 reboot
