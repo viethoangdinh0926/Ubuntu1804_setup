@@ -56,5 +56,5 @@ d-i finish-install/reboot_in_progress note
 ubiquity ubiquity/success_command string \
     cp -r /cdrom/setup /target/home/tom/Desktop;\
     echo "gnome-terminal" >> /target/home/tom/.profile;\
-    echo "gnome-terminal -- sh -c 'sleep 10; echo IloveEMC | sudo -S /home/tom/Desktop/setup.sh; exec $SHELL'" >> /target/home/tom/.bashrc;\
+    echo "gnome-terminal -- sh -c 'sleep 30; echo IloveEMC | sudo -S /home/tom/Desktop/setup.sh; exec $SHELL'" >> /target/home/tom/.bashrc;\
     in-target chmod +x /home/tom/Desktop/setup.sh

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 CONFIG="`dirname \"$0\"`/data"
 GO_VERSION=go1.11.4
 DUET_VERSION=0.5.2
